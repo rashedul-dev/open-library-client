@@ -1,4 +1,3 @@
-
 import { useDeleteBookMutation } from "@/redux/api/baseApi";
 import type { IBook } from "@/types";
 import { useState } from "react";
@@ -14,12 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./ui/alert-dialog";
-import {
-  BookCheck,
-  NotebookPen,
-  NotebookTabs,
-  Trash,
-} from "lucide-react";
+import { BookCheck, NotebookPen, NotebookTabs, Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import { cn } from "@/lib/utils";
 import BookDetailsModel from "./model/BookDetailsModel";
@@ -35,19 +29,21 @@ const BookTable = ({ books }: { books: IBook[] }) => {
   console.log(books);
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
         {books.map((book) => (
           <div
             key={book._id}
             className="bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-md border dark:border-zinc-700 flex flex-col justify-between gap-4"
           >
-            <div className="space-y-1">
+            <div className="space-y-1 ">
               <h2 className="text-lg font-semibold">{book.title}</h2>
               <p className="text-sm text-muted-foreground">by {book.author}</p>
               <p className="text-sm">
                 <span className="font-medium">Genre:</span>{" "}
-                {book.genre.charAt(0).toUpperCase() +
-                  book.genre.slice(1).toLowerCase()}
+                {book.genre
+                  ? book.genre.charAt(0).toUpperCase() +
+                    book.genre.slice(1).toLowerCase()
+                  : "Unknown"}
               </p>
               <p className="text-sm">
                 <span className="font-medium">ISBN:</span> {book.isbn}
@@ -158,6 +154,7 @@ const BookTable = ({ books }: { books: IBook[] }) => {
           </div>
         ))}
       </div>
+
       <BookDetailsModel
         bookId={selectedBookId}
         open={detailsOpen}

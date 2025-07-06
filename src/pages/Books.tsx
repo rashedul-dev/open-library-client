@@ -45,8 +45,8 @@ const Books = () => {
     );
   }
   return (
-    <div>
-      <div className="flex flex-wrap md:justify-end gap-4 items-center mb-6">
+    <div className="min-h-screen">
+      <div className="flex flex-wrap md:justify-end gap-4 items-center mb-6 ">
         {/* Filter by Genre */}
         <Select
           onValueChange={(value) => {
@@ -76,37 +76,41 @@ const Books = () => {
           </Button>
         </Link>
       </div>
-      {error && <p>Error fetching books</p>}
-      {books?.length > 0 ? (
-        <BookTable books={books} />
-      ) : (
-        !isLoading && <p>No books found.</p>
-      )}
+      <div className="min-h-screen">
+        {error && <p>Error fetching books</p>}
+        {books?.length > 0 ? (
+          <BookTable books={books} />
+        ) : (
+          !isLoading && <p>No books found.</p>
+        )}
+      </div>
 
       {/* pagination */}
-      <div className="flex justify-center gap-2 mt-6 text-sm items-center">
-        <Button
-          disabled={page === 1}
-          variant={"outline"}
-          className="border-none"
-          onClick={() => setPage((prev) => prev - 1)}
-        >
-          <MoveLeft className="w-4 h-4" />
-          Prev
-        </Button>
-        <span className="px-3 py-1 rounded">
-          Page {page} of {totalPages}
-        </span>
-        <Button
-          disabled={page === totalPages}
-          variant={"outline"}
-          className="border-none"
-          onClick={() => setPage((prev) => prev + 1)}
-        >
-          {" "}
-          Next
-          <MoveRight className="w-4 h-4" />
-        </Button>
+      <div className="flex flex-col ">
+        <div className="flex grow justify-center gap-2 mt-6 text-sm items-center">
+          <Button
+            disabled={page === 1}
+            variant={"outline"}
+            className="border-none"
+            onClick={() => setPage((prev) => prev - 1)}
+          >
+            <MoveLeft className="w-4 h-4" />
+            Prev
+          </Button>
+          <span className="px-3 py-1 rounded">
+            Page {page} of {totalPages}
+          </span>
+          <Button
+            disabled={page === totalPages || books.length === 0}
+            variant={"outline"}
+            className="border-none"
+            onClick={() => setPage((prev) => prev + 1)}
+          >
+            {" "}
+            Next
+            <MoveRight className="w-4 h-4" />
+          </Button>
+        </div>
       </div>
     </div>
   );

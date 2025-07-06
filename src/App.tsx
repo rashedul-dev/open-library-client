@@ -8,7 +8,7 @@ function App() {
     <>
       <div>
         <Navbar></Navbar>
-        <div className="px-4 sm:px-6 lg:px-8 min-h-[160vh]">
+        <div className="px-4 sm:px-6 lg:px-8 min-h-screen">
           <Outlet></Outlet>
         </div>
         <Footer></Footer>
