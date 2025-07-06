@@ -1,8 +1,6 @@
 const Loader = () => {
   return (
-    <div className="spinner">
-      <div className="spinnerin"></div>
-    </div>
+    <div className="spinner">{/* <div className="spinnerin"></div> */}</div>
   );
 };
 
