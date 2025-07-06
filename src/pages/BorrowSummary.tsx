@@ -3,7 +3,12 @@ import { useGetBorrowSummaryQuery } from "@/redux/api/baseApi";
 const BorrowSummary = () => {
   const { data, isLoading, isError } = useGetBorrowSummaryQuery(undefined);
 
-  if (isLoading) return <p className="text-center mt-10">Loading summary...</p>;
+  if (isLoading)
+    return (
+      <p className="text-center mt-10">
+        <div className="spinner"></div>
+      </p>
+    );
   if (isError)
     return (
       <p className="text-red-500 text-center mt-10">Failed to fetch data.</p>
