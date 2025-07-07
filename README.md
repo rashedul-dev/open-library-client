@@ -1,115 +1,107 @@
-# 📚 Library Management System – Frontend
+# 📘 Open Library Management System – Frontend
 
-This is the **frontend** of a minimal Library Management System built with:
+A clean and responsive frontend interface for a **Library Management System**, developed using modern web technologies:
 
-- ⚛️ React + TypeScript
-- 🔁 Redux Toolkit + RTK Query
-- 🎨 Tailwind CSS
-- 🧩 ShadCN UI components
-- 💬 Toast Notifications
-- 💡 Optimistic UI Support (coming soon!)
+- ⚛️ **React** with **TypeScript**
+- 📦 **Redux Toolkit** and **RTK Query** for state management and data fetching
+- 🎨 **Tailwind CSS** with **ShadCN UI** for component styling
+- 🔔 **React Hot Toast** for real-time notifications
+- 💡 Optimistic UI support _(upcoming feature)_
 
-It allows users to:
-
-- View books
-- Create, edit, and delete books
-- Borrow books with quantity and due date
-- View a borrow summary with total quantities
-
-> ✅ **No authentication required** – it's a publicly accessible app.
+This application enables users to browse and manage a collection of books and handle borrowing functionalities efficiently.
 
 ---
 
-## 🌐 Live Preview
+## 🌐 Live Application
 
-👉 [Live Frontend Site](https://open-library-managment.vercel.app/)
+🔗 **Frontend**: [View Live Site](https://open-library-managment.vercel.app/)  
+🔗 **Backend**: [Live API Endpoint](https://lmsbackendapi.vercel.app)
 
 ---
 
-## 🚀 Backend Repo
+## 📂 Related Repository
 
-🔗 [Backend GitHub Repository](https://github.com/rashedul-dev/lms-backend)
+- **Backend Source Code**: [GitHub – lms-backend](https://github.com/rashedul-dev/lms-backend)
 
-[Backend Link](https://lmsbackendapi.vercel.app)
+---
 
-## 🧠 Features
+## ✨ Core Features
 
 ### 📚 Book Management
 
-- Add a new book
-- Edit or delete existing books
-- Sort by date (newest/oldest)
+- Create, update, delete and view books
 - Filter by genre
-- Responsive UI with loading states and error messages
+- Responsive UI with loading and error handling
+- custom pagination to load the books
 
-### 📝 Borrow a Book
+### 📝 Borrowing System
 
-- Select quantity and due date
-- Quantity validation (cannot exceed available copies)
-- Book marked unavailable if no copies left
-- Redirects to borrow summary page after success
+- Specify quantity and due date when borrowing
+- Validation for available quantity
+- Auto-disable books with no copies available
+- Redirects to a borrow summary upon successful borrow
 
 ### 📊 Borrow Summary
 
-- Aggregates borrow data via API
-- Displays book title, ISBN, and total quantity borrowed
+- Displays a summary of all borrowed books
+- Shows ISBN, title, and total borrowed quantity
+- disallow duplicate ISBNs
+
+> ✅ This project is **publicly accessible** and does not require authentication.
 
 ---
 
-## 📦 Tech Stack
+## 🛠 Technology Stack
 
-| Layer   | Tools                                      |
-| ------- | ------------------------------------------ |
-| UI      | React, TypeScript, Tailwind CSS, ShadCN UI |
-| State   | Redux Toolkit, RTK Query                   |
-| Forms   | React Hook Form                            |
-| UX      | react-hot-toast                            |
-| Routing | React Router V7                            |
-| Build   | Vite                                       |
+| Layer       | Tools                                      |
+| ----------- | ------------------------------------------ |
+| **UI**      | React, TypeScript, Tailwind CSS, ShadCN UI |
+| **State**   | Redux Toolkit, RTK Query                   |
+| **Forms**   | React Hook Form                            |
+| **UX**      | React Hot Toast                            |
+| **Routing** | React Router v7                            |
+| **Bundler** | Vite                                       |
 
 ---
 
-## 🛠 Installation
+## 📦 Getting Started
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/library-frontend.git
+# 1. Clone the repository
+git clone https://github.com/rashedul-dev/library-frontend.git
 cd library-frontend
 
 # 2. Install dependencies
 npm install
 
-# 3. Start development server
-npm run dev
+# 3. Start the development server
+npm run build
 ```
 
-> ⚠️ Make sure your backend server is running at `http://localhost:5000`
+> ⚠️ Ensure your backend API is running at `http://localhost:5000` for local development.
 
 ---
 
-## 🧩 Folder Structure
+## 🗂 Project Structure
 
 ```bash
 src/
-├── components/        # Reusable UI components
-├── pages/             # Main route pages (Books, AddBook, BorrowSummary)
-├── redux/             # RTK setup & API slices
-├── routes/            # React Router setup
-├── types/             # Shared TypeScript types
-└── lib/               # Utility functions (e.g., classNames)
+├── components/        # Shared UI components
+├── pages/             # Application views (Books, Add Book, Borrow Summary)
+├── redux/             # RTK slices, API configurations
+├── routes/            # Route definitions
+├── types/             # Shared TypeScript interfaces/types
+└── lib/               # Utility functions and helpers
 ```
 
 ---
 
-## 🔮 Future Enhancements
+## 🔭 Planned Enhancements
 
-- 🧠 **Optimistic UI** for borrowing and editing books
-- 🔍 **Search bar** to filter books by title or author
-- 📅 **Due Date Tracker** to highlight overdue books
-- 👥 **Authentication** for admin-only access and book management
-- 📝 **Borrow history logs** with timestamps
-- 📊 **Dashboard view** for quick insights (e.g., most borrowed books)
-- **Improving the validation system** - e.g. when creating a book with duplicate ISBN number, the form should give the user a message saying 'ISBN number cannot be duplicated.
-- **Edit book button**- Instead of just using an icon, type the action button names.
-- **404 page**- (make a 404 page)
-- **Available button background change**- design available cell with green font, but light green background color.
+- 🔄 **Optimistic UI** updates during borrowing and editing
+- 🔍 **Search functionality** by title or author
+- 📅 **Due date tracker** to flag overdue books
+- 🔐 **Authentication & Authorization** for admin-level access
+- 📘 **Borrow history** with timestamp logs
+- 📈 **Dashboard view** for metrics (e.g., most borrowed books)
+- 🚫 **Custom 404 Page**
