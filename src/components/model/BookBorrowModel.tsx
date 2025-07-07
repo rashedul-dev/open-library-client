@@ -91,7 +91,7 @@ const BorrowBookModal = ({ bookId, open, onOpenChange }: BookModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] overflow-y-auto max-h-[90vh]">
+      <DialogContent className="sm:max-w-[425px] sm:mb-10 overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Borrow Book</DialogTitle>
           <DialogDescription>
